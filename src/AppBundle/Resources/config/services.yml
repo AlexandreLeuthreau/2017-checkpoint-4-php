@@ -1,0 +1,7 @@
+parameters:
+    tva: 0.20
+
+services:
+    calculator:
+        class: AppBundle\Service\Calculator
+        arguments: ["@service_container"]

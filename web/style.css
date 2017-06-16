@@ -1,0 +1,17 @@
+#submitbtn{
+    margin-top: 30px;
+}
+li{
+    border: solid 2px #d1d1d1;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 70%;
+    height: auto !important;
+    height: 70%;
+}
