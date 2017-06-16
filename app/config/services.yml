@@ -33,3 +33,9 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    calculator:
+        class: 'AppBundle\Service\Calculator'
+        public: true
+        arguments:
+            - '%tva%'
