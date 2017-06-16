@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Calc</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    {% if total is defined %}
+    {% for total in total %}
+    <div class="row" id="total">
+        <div class="col-md-6 col-md-offset-3">
+             {{ total }}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+{% endblock body %}

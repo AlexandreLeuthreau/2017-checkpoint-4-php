@@ -6,3 +6,5 @@ subject:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+    prefix: /calc
+    defaults: { _controller: AppBundle:Default:calc }
