@@ -9,6 +9,13 @@ services:
         arguments: [ '%tva%' ]
         public: true
 
+    myapp.twig.formatprice:
+        class:    AppBundle\Service\FormatPrice
+        public: true
+        arguments: []
+        tags:
+            - { name: twig.extension }
+
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

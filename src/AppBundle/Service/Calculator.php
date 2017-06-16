@@ -23,8 +23,8 @@ class Calculator
         $totalTtc += $totalHt*(1+$this->tva);
 
         return array(
-            'totalHt' => $totalHt,
-            'totalTtc' => $totalTtc,
+            'totalHt' => round($totalHt, 2),
+            'totalTtc' => round($totalTtc, 2)   ,
         );
     }
 }

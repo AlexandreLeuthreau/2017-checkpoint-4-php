@@ -17,8 +17,8 @@
                     <div style="border: 1px solid black">
                         <p><strong>Les montants pour ce panier sont les suivants :</strong></p>
                         <ul>
-                            <li>Montant HT : {{ montants.totalHt|number_format(2, ',', ' ') }} €</li>
-                            <li>Montant TTC : {{ montants.totalTtc|number_format(2, ',', ' ') }} €</li>
+                            <li>Montant HT : {{ montants.totalHt|price_format }}</li>
+                            <li>Montant TTC : {{ montants.totalTtc|price_format }}</li>
                         </ul>
                     </div>
                 {% endif %}
