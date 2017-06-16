@@ -1,7 +1,5 @@
 <?php
-// src/AppBundle/Form/TaskType.php
 namespace AppBundle\Form;
-//Forms classes
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
