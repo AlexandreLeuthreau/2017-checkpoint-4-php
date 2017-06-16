@@ -7,7 +7,27 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+
+        {{ form_start(my_form) }}
+
+            {{ form_label(my_form.productName) }}
+            {{ form_widget(my_form.productName) }}
+            {{ form_errors(my_form.productName) }}
+
+            {{ form_label(my_form.nb) }}
+            {{ form_widget(my_form.nb) }}
+            {{ form_errors(my_form.nb) }}
+
+            {{ form_label(my_form.price) }}
+            {{ form_widget(my_form.price) }}
+            {{ form_errors(my_form.price) }}
+
+            {{ form_row(my_form.validate) }}
+
+            {{ form_end(my_form) }}
+
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

@@ -1,8 +1,12 @@
+app_form:
+    path:     /form
+    defaults: { _controller: "AppBundle:Default:calcul" }
+
 subject:
     resource: "@SubjectBundle/Controller/"
     type:     annotation
     prefix:   /
-
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+

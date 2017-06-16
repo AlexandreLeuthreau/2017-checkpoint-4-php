@@ -33,3 +33,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    services:
+        app.calculateur_tarif:
+            class: AppBundle\Services\CalculateurTarif
