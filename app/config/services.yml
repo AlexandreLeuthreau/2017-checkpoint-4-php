@@ -1,6 +1,7 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
 parameters:
+    tva: 20
     #parameter_name: value
 
 services:
@@ -33,3 +34,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    calculator:
+        class: AppBundle\Service\Calculator
+        arguments: ['%tva%']
+        public: true

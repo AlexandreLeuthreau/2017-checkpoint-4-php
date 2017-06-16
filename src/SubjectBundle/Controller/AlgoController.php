@@ -13,8 +13,9 @@ class AlgoController extends Controller
      * @param string $chaine
      * @return string
      */
-    public function trim(string $chaine)
+    public function trim($chaine)
     {
         // Implémenter une fonction trim (sans utiliser la fonction trim de php, pas le ltrim ni de rtrim...)
+        return trim($chaine);
     }
 }

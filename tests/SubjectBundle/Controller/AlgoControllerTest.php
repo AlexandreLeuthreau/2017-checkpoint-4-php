@@ -20,7 +20,7 @@ class AlgoControllerTest extends TestCase
     /**
      * @dataProvider dataToBeTrimed
      */
-    public function testYourTrim(string $chaine) {
+    public function testYourTrim($chaine) {
 
         $this->assertEquals (trim($chaine), $this->controller->trim($chaine));
     }
