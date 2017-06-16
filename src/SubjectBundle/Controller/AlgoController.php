@@ -15,20 +15,19 @@ class AlgoController extends Controller
      */
     public function trim(string $chaine)
     {
-        // soit on fait ca :
+        ///////// soit on fait ca :
         // $chaine = preg_replace('/\s/', '', $chaine);
         // return $chaine ;
+        ///////// sinon mon truc qui s'arrete jamais ..
 
-        // sinon ...
-
-        //on stocke la chaine splité dans tmp
+        //Stockage chaine de caractère transformé en tableau dans la variable tmp
         $tmp = str_split($chaine);
 
-        //on initialise deux comptes qui ont la meme valeur
+        //Initialisation deux compteurs identiques
         $compteur=count($tmp);
         $compteur2=$compteur;
 
-        //tant que l'on ne dépasse pas la chaine de caractère
+        //Tant que l'on ne dépasse pas le tableau de chaines
         while ($compteur>0) {
             //on supprime les espaces dans un premier sens
             for ($index = 0; $index < count($tmp); $index++) {
