@@ -2,4 +2,10 @@
 
 {% block body %}
     {{ form(form) }}
+    {% if montants is defined %}
+    <ul class="montants">
+        <li>Montant HT : {{ montants.totalHt|number_format(2, ',', ' ') }} €</li>
+        <li>Montant TTC : {{ montants.totalTtc|number_format(2, ',', ' ') }} €</li>
+    </ul>
+    {% endif %}
 {% endblock %}
