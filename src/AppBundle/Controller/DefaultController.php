@@ -6,6 +6,7 @@ use AppBundle\Form\PanierType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -21,7 +22,7 @@ class DefaultController extends Controller
             $data = $form->getData();
 
             $myCalculator = $this->get('myapp.calculator');
-            $montants = $myCalculator->calculMontantsTotaux($data);
+            $montants = $myCalculator->calculMontantsTotaux($data['panier']);
 
             return $this->render('@App/index.html.twig', array(
                 'form' => $form->createView(),

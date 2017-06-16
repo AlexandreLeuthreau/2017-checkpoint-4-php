@@ -13,8 +13,14 @@ class Calculator
 
     public function calculMontantsTotaux($panier)
     {
-        $totalHt = $panier['quantity']*$panier['price'];
-        $totalTtc = $totalHt*(1+$this->tva);
+        $totalHt = 0;
+        $totalTtc = 0;
+
+        foreach ($panier as $article) {
+            $totalHt += $article['quantity']*$article['price'];
+        }
+
+        $totalTtc += $totalHt*(1+$this->tva);
 
         return array(
             'totalHt' => $totalHt,
