@@ -25,7 +25,10 @@ public function buildForm(FormBuilderInterface $builder, array $options)
             'allow_add' => true,
             'allow_delete' => true,
         ))
-        ->add('submit', SubmitType::class)
+        ->add('submit', SubmitType::class, array(
+            'attr' => array('class' => 'btn btn-success del-btn-submit'),
+            'label' => 'Calculer le panier',
+        ))
     ;
     }
 }
