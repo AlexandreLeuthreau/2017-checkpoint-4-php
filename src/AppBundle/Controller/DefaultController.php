@@ -18,4 +18,9 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    public function serviceAction() {
+        $calcul = $this->get('app.calculator_service');
+        $calcul->calculatorAction();
+    }
 }

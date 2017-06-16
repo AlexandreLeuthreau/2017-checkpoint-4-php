@@ -15,6 +15,25 @@ class AlgoController extends Controller
      */
     public function trim(string $chaine)
     {
-        // Implémenter une fonction trim (sans utiliser la fonction trim de php, pas le ltrim ni de rtrim...)
+        $letters = str_split($chaine);
+        for ($i =0; $i < sizeof($letters); $i++ ) {
+            if ($letters[$i] == ' ') {
+                $letters[$i] = '';
+            }
+            else {
+                break;
+            }
+        }
+        for ($j = sizeof($letters)-1; $j >= 0; $j-- ) {
+            if ($letters[$j] == ' ') {
+                $letters[$j] = '';
+            }
+            else {
+                break;
+            }
+        }
+        var_dump($letters);
+        $end = implode('', $letters);
+        return $end;
     }
 }
