@@ -1,0 +1,3 @@
+form_calcul:
+    path:     /form
+    defaults: { _controller: AppBundle:Default:index }

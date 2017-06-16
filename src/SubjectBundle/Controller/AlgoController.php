@@ -13,8 +13,21 @@ class AlgoController extends Controller
      * @param string $chaine
      * @return string
      */
-    public function trim(string $chaine)
+    public function trim($string, $chaine)
     {
         // Implémenter une fonction trim (sans utiliser la fonction trim de php, pas le ltrim ni de rtrim...)
+
+        $string = ' Une chaine contenant des espaces avant et après ';
+        $inputarray = explode(" ", $chaine);
+        $outputarray = array[];
+        for($i = 0, $i <= count($inputarray), $i++){
+            if($outputarray[i] == " " ){
+                break;
+            }
+            foreach ()
+
+        }
+
+
     }
 }
