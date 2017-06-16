@@ -1,0 +1,30 @@
+{% extends '@Subject/layout.html.twig' %}
+{% block title %}
+    Affichage PANIER
+{% endblock %}
+{% block stylesheets %}
+{% endblock %}
+{% block titre_page %}
+    Affichage d'un panier
+{% endblock %}
+{% block breadcrumb %}
+    <li><a href="{{ path('homepage') }}">Menu</a></li>
+    <li class="active">Voici votre panier</li>
+{% endblock %}
+{% block content %}
+Récapitulatif de votre commande :
+
+    {{ form(form) }}
+
+{% for tableau in tableaux["objets"] %}
+<tr>
+    <td>{{ table["nom"] }}</td>
+    <td>{{ table["prix"] }}</td>
+    <td>{{ table["quantite"] }}</td>
+    <td>{{ table["Hors Taxes"] }}</td>
+    <td>{{ table["Toutes Taxes"] }}</td>
+</tr>
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}
