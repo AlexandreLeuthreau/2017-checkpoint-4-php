@@ -23,13 +23,13 @@ class DefaultController extends Controller
             $myCalculator = $this->get('myapp.calculator');
             $montants = $myCalculator->calculMontantsTotaux($data);
 
-            return $this->render(':myApp:index.html.twig', array(
+            return $this->render('@App/index.html.twig', array(
                 'form' => $form->createView(),
                 'montants' => $montants,
             ));
         }
 
-        return $this->render(':myApp:index.html.twig', array(
+        return $this->render('@App/index.html.twig', array(
             'form' => $form->createView(),
         ));
     }

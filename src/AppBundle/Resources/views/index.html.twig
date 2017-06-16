@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calculateur de panier{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Calculateur de panier</h3>
+                {{ form(form) }}
+                {% if montants is defined %}
+                    <div style="border: 1px solid black">
+                        <p><strong>Les montants pour ce panier sont les suivants :</strong></p>
+                        <ul>
+                            <li>Montant HT : {{ montants.totalHt|number_format(2, ',', ' ') }} €</li>
+                            <li>Montant TTC : {{ montants.totalTtc|number_format(2, ',', ' ') }} €</li>
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+{% endblock %}

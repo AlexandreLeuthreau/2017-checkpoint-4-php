@@ -6,7 +6,8 @@ parameters:
 services:
     myapp.calculator:
         class: AppBundle\Service\Calculator
-#
+        arguments: [ '%tva%' ]
+
 #    # default configuration for services in *this* file
 #    _defaults:
 #        # automatically injects dependencies in your services
@@ -36,4 +37,3 @@ services:
 #    # AppBundle\Service\ExampleService:
 #    #     arguments:
 #    #         $someArgument: 'some_value'
-#
