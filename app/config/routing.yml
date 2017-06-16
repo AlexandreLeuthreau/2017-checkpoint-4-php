@@ -6,3 +6,4 @@ subject:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+    prefix: /app
