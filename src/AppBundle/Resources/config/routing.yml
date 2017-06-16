@@ -1,0 +1,8 @@
+app_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+
+
+app_panier:
+    path:     /panier
+    defaults: { _controller: AppBundle:Default:panier }

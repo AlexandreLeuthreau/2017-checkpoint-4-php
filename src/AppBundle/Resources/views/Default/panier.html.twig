@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+{{ form(my_form) }}
+
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>HT</th>
+            <th>TTC</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for table in tables["produit"] %}
+            <tr>
+                <td>{{ table["nom"] }}</td>
+                <td>{{ table["prix"] }}</td>
+                <td>{{ table["quantité"] }}</td>
+                <td>{{ table["ht"] }}</td>
+                <td>{{ table["ttc"] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -14,8 +14,27 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('AppBundle:Default:index.html.twig');
     }
+
+    public function panierAction(Request $request)
+    {
+        $form = $this->createForm('AppBundle\Form\CalculType');
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $input = $form->getData();
+
+            $message = $this->get("calculator");
+            foreach ($input["nom"] as $key => $produit){
+                $table = $message->Calculate($produit["quantité"]*$produit["prix"]);
+                $input["produit"][$key]["ht"] = $table[0];
+                $input["produit"][$key]["ttc"] = $table[1];
+            }
+            }
+
+            return $this->render('AppBundle:Default:panier.html.twig', [
+                'calcul_form' => $form->createView(),
+            ]);
+        }
 }
