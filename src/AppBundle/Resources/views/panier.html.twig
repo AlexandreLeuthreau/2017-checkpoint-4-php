@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style type="text/css">
+	body{
+		margin: 0 200px 0 200px;
+	}
+</style>
+	{{ form_start(form) }}
+	{{ form_row(form.name) }}
+	{{ form_row(form.quantity) }}
+	{{ form_row(form.price) }}
+	{{ form_end(form) }}
+
+
+
+	{{ horstaxe }}
+	{{ taxe }}
+{% endblock %}
