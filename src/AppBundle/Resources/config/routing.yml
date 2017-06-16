@@ -1,0 +1,7 @@
+prix:
+    path:     /prix
+    defaults: { _controller: AppBundle:Default:calculateurPrix }
+
+panier:
+    path:     /panier
+    defaults: { _controller: AppBundle:Default:calculateurPrix }

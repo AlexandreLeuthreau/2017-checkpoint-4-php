@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Formulaire de Produits</h3>
+        </div>
+        <div class="panel-body">
+            {{ form_start(contact_form) }}
+
+            {{ form_label(contact_form.nom) }}
+            {{ form_widget(contact_form.nom) }}
+            {{ form_errors(contact_form.nom) }}
+
+            {{ form_label(contact_form.quantite) }}
+            {{ form_widget(contact_form.quantite) }}
+            {{ form_errors(contact_form.quantite) }}
+
+            {{ form_label(contact_form.prixHT) }}
+            {{ form_widget(contact_form.prixHT) }}
+            {{ form_errors(contact_form.prixHT) }}
+
+            {{ form_row(contact_form.submit) }}
+
+            {{ form_end(contact_form) }}
+        </div>
+    </div>
+
+
+
+{% endblock %}
