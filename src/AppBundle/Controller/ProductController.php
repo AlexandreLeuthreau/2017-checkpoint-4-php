@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\ProductType;
 use AppBundle\Service\Calculator;
 
+
 class ProductController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class ProductController extends Controller
             //On recupere les donnees
             $data = $form->getData();
             $calculator = $this->get('app.calculator');
-            $song->setSongUrl($playerEditor->getYoutubeId($song->getSongPlayer()));
+            $data->setVATPrice($calculator->getVAT($data->getPrice()));
 
         }
 

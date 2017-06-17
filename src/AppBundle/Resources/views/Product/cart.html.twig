@@ -24,5 +24,16 @@
 
             {{ form_end(product_form) }}
         </div>
+
+        <div>
+            <table>
+                <thead>My bill</thead>
+                <tbody>
+                <tr>{{ VATprice }}</tr>
+                <tr>{{ total }}</tr>
+                <tr>{{ totalVAT }}</tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}
