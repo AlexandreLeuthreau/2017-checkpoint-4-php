@@ -4,6 +4,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\ProductType;
+use AppBundle\Service\Calculator;
 
 class ProductController extends Controller
 {
@@ -22,8 +23,8 @@ class ProductController extends Controller
 
             //On recupere les donnees
             $data = $form->getData();
-
-            //service ici
+            $calculator = $this->get('app.calculator');
+            $song->setSongUrl($playerEditor->getYoutubeId($song->getSongPlayer()));
 
         }
 
