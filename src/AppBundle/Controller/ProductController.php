@@ -23,14 +23,12 @@ class ProductController extends Controller
             //On recupere les donnees
             $data = $form->getData();
 
-            // Puis on traite la donnée (envoi de mail…)
-            // Apres avoir configure les paramtre du SMTP
             //service ici
 
         }
 
 
-        return $this->render('productform.html.twig', [
+        return $this->render('AppBundle:Product:cart.html.twig', [
             'product_form' => $form->createView(),
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
