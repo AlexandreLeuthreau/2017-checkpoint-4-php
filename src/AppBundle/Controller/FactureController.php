@@ -11,7 +11,7 @@ class FactureController extends Controller
 {
 
     /**
-     * @Route("/form", name="homepage")
+     * @Route("/", name="welcome")
      */
     public function indexAction(Request $request)
     {
@@ -19,24 +19,25 @@ class FactureController extends Controller
 
         $form->handleRequest($request);
 
+        $prixHT = 0;
+        $prixTTC = 0;
+
         if ($form->isSubmitted() && $form->isValid()){
-            $quantite = $form->get('quantite')->getData();
-            $prix = $form->get('price')->getData();
+            for ($i = 0 ; $i < count($form->get('lignesFacture')->getData()) ; $i++){
+                $quantite = $form->get('lignesFacture')->getData()[$i]['quantite'];
+                $prix = $form->get('lignesFacture')->getData()[$i]['price'];
 
-            $prixHT = $this->get('calculator');
-            $prixHT->totalHT($quantite, $prix);
+                $calculator = $this->get('calculator');
+                $prixHT += $calculator->totalHT($quantite, $prix);
+                $prixTTC += $calculator->totalTTC($quantite, $prix);
+            }
 
-            $prixTTC = $this->get('calculator');
-            $prixTTC->totalTTC($quantite, $prix);
-
-            return $this->redirectToRoute('homepage', array(
-                'prixht' => $prixHT,
-                'prixttc' => $prixTTC
-            ));
         }
 
-        return $this->render(':default:form.html.twig', array(
-            'form' => $form->createView()
+        return $this->render(':default:index.html.twig', array(
+            'form' => $form->createView(),
+            'prixht' => $prixHT,
+            'prixttc' => $prixTTC,
         ));
     }
 }
