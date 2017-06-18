@@ -35,7 +35,14 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             //si les donnes sont bonne on vas les traiter
-            $data = $form->getData();
+
+
+            $Calculfyer = $this->get('CalculatorService');
+
+            //$recup->setCalculator($Calculfyer->calculator($recup->get"Pu"()));
+
+
+            //$data = $form->getData();
 
 
         }

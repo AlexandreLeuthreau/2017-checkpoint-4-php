@@ -33,3 +33,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    CalculatorService:
+        class:    AppBundle\Service\CalculatorService
+        arguments: []%pu%,%qte%,%tx%"]
