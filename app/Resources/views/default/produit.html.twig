@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }} - Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

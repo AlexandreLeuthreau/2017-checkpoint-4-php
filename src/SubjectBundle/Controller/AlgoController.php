@@ -18,7 +18,8 @@ class AlgoController extends Controller
         // Implémenter une fonction trim (sans utiliser la fonction trim de php, pas le ltrim ni de rtrim...)
         $lg=strlen($chaine);
         $ls=0;
-        $sortie= array();
+        //$sortie= array();
+        $sortie="";
         $j=0;
         $flg=0;
         echo "d lg=".$lg."\n"."<".$chaine.">\n";
@@ -36,30 +37,18 @@ class AlgoController extends Controller
                     }
                 }
             }
-
         $ls=count($sortie);
-        echo "ls=".$ls."\n";
-//echo "xxxx".$sortie[1];
-        $i=$ls;
-        $flg=0;
-        while($flg==0){
-            echo "ici=".$i."\n";
-
-            echo "  valeur=<".$sortie[$i].">\n";
-            /*
-            if ($sortie[$i]!=" "){
-                echo "ici";
-                $flg=1;
-            }
-            */
-            $i--;
-            if ($i<2)
-                $flg=1;
-            
+       // echo "ls=".$ls."\n";
+        $j=1;
+        $i=$ls-1;
+        while($sortie[$i]==" "){
+            //echo $i."     valeur=<".$sortie[$i].">\n";
             //unset($sortie[$i]);
+            $sortie[$i]="";
+            $i--;
         }
+        //echo "<".implode("",$sortie).">\n";
+        return implode("",$sortie);
 
-
-        echo "<".implode("",$sortie).">\n";
     }
 }

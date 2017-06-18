@@ -27,7 +27,7 @@ class AlgoControllerTest extends TestCase
 
     public function dataToBeTrimed()
     {
-        /*
+
         return [
             ['La premiere chaine'],
             [' La chaine 1'],
@@ -37,9 +37,7 @@ class AlgoControllerTest extends TestCase
             ['  La chaine 5  '],
             ['                        La derniere chaine.                      '],
         ];
-        */
-        return [
-            ['                        La derniere chaine.                      '],
-        ];
+
+
     }
 }
