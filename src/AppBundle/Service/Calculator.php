@@ -18,7 +18,7 @@ class Calculator
 		$ht_price = $qty * $price;
 		$result = [
 			'ht' => $ht_price,
-			'ttc' => $qty * $this->_tva,
+			'ttc' => $ht_price * $this->_tva,
 			];
 		return $result;
 	}
