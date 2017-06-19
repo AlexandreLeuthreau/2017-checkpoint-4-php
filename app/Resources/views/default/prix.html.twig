@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <nav class="navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Prix HT et TTC" src="...">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+<div class="text-center">
+    <table class="col-sm-offset-4 col-sm-4 table-bordered white">
+        <thead>
+            <tr>
+                <th>Nom du produit</th>
+                <th>Quantité</th>
+                <th>Prix HT</th>
+                <th>Prix TTC</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        <tr>
+            <td>{{ nom }}</td>
+            <td>{{ quantite }}</td>
+            <td>{{ prixHT }}€</td>
+            <td>{{ prixTTC }}€</td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+{% endblock %}

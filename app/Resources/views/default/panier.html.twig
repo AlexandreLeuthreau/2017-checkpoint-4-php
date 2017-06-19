@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<nav class="navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Prix HT et TTC" src="...">
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class=" col-sm-3 col-sm-offset-4 form">
+    {{ form_start(form) }}
+    <h3 class="title">Formulaire de Produits</h3>
+
+<div class="row">
+    <div class="col-sm-offset-3 col-sm-3">
+        <div class="input-group">
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom) }}
+            {{ form_errors(form.nom) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-offset-3 col-sm-3">
+        <div class="input-group">
+            {{ form_label(form.quantite) }}
+            {{ form_widget(form.quantite) }}
+            {{ form_errors(form.quantite) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-offset-3 col-sm-3">
+        <div class="input-group">
+            {{ form_label(form.prixHT) }}
+            {{ form_widget(form.prixHT) }}
+            {{ form_errors(form.prixHT) }}
+        </div>
+    </div>
+</div>
+<div class="row text-center">
+    <div class="col-sm-12 text-center">
+        <div class="form-group">
+            {{ form_row(form.Enregistrer, { 'attr': {'class': 'btn btn-info'}}) }}
+        </div>
+    </div>
+</div>
+
+            {{ form_end(form) }}
+</div>
+{% endblock %}

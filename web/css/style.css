@@ -136,6 +136,34 @@ nav ul li a, .dropdown-content{
     border-top: solid 1px rgb(239, 151, 33);
 }
 
+/* FORMULAIRE */
+body {
+    background-image: url("http://www.hdbilder.eu/pictures/2012/0307/1/orig_529042.jpg");
+}
+
+.title{
+    padding-bottom: 20px;
+}
+.btn{
+    margin-top: 20px;
+}
+.form{
+    background: rgba(86, 86, 86, .3);
+    margin-top: 200px;
+    padding-top: 10px;
+    position: relative;
+    border-radius: 2px;
+    color: white;
+
+}
+.input-group{
+    color:grey;
+}
+
+.white{
+    color: white;
+    margin-top: 100px;
+}
 
 /* FOOTER */
 footer{

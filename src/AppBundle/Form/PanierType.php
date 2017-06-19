@@ -22,7 +22,7 @@ class PanierType extends AbstractType
                 'constraints' => new Length(array('min' => 0))
             ))
 
-            ->add('submit', SubmitType::class);
+            ->add('Enregistrer', SubmitType::class);
     }
 
 
