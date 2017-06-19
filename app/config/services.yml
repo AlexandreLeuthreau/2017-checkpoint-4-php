@@ -1,9 +1,18 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
 parameters:
-    #parameter_name: value
+    tva: .2
 
 services:
+    calctva:
+        public: true
+        class: AppBundle\Services\CalcTVA
+        arguments: [ '%tva%' ]
+
+    calc:
+        public: true
+        class: AppBundle\Services\Calc
+
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services
@@ -12,7 +21,7 @@ services:
         autoconfigure: true
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
-        public: true
+        public: false
 
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -34,5 +43,4 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-    calc:
-      class: AppBundle\Services\Calc
+

@@ -2,28 +2,34 @@
 
 {% block body %}
     <div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h1>Calc</h1>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>Calc</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </div>
         </div>
-    </div>
 
-    {% if total is defined %}
-    {% for total in total %}
-    <div class="row" id="total">
-        <div class="col-md-6 col-md-offset-3">
-             {{ total }}
+        <div class="row" id="total">
+            <div class="col-md-6 col-md-offset-3">
+                {% if xTVA is defined %}
+                    <p> Prix avant TVA: €{{ xTVA }} </p>
+                {% endif %}
+            </div>
         </div>
+
+        <div class="row" id="total">
+            <div class="col-md-6 col-md-offset-3">
+                {% if xTVA is defined %}
+                    <p> Prix total: €{{ taxTotal }} </p>
+                {% endif %}
+            </div>
+        </div>
+
     </div>
-    {% endfor %}
-    {% endif %}
-
-
 {% endblock body %}

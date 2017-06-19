@@ -4,9 +4,9 @@ namespace AppBundle\Services;
 
 class Calc
 {
-    public function doCalc($q, $price){
 
-        return $q * $price;
+    public function doCalc($quantity, $price){
 
+        return $quantity * $price;
     }
 }

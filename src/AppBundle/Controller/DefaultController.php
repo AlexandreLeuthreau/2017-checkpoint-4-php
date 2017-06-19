@@ -10,12 +10,14 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
      */
+
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
@@ -24,26 +26,35 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/service", name="calctva")
+     */
     public function calcAction (Request $request)
     {
         $form = $this->createForm(CalcType::class);
 
         $form->handleRequest($request);
-        $total = null;
+
+        $xTVA=null;
+        $taxTotal=null;
+
         if ($form->isSubmitted() && $form->isValid())
         {
+            $dataQuantity = $form->get('Quantity')->getData();
+            $dataPrice = $form->get('Price')->getData();
+
             $calc = $this->get('calc');
-            $total = $calc->doCalc($form->get('Quantity')->getData(), $form->get('Price')->getData());
-/*
-            return $this->redirectToRoute('app', ['_fragment' => 'total'], array(
-                'total'=> $total,
-            ));*/
-            var_dump($total);
+            $xTVA = $calc->doCalc($dataQuantity,$dataPrice);
+
+            $calcTVA = $this->get('calctva');
+            $taxTotal = $calcTVA->doCalcTVA($dataQuantity,$dataPrice);
+
         }
 
         return $this->render('calc.html.twig', array(
             'form' => $form->createView(),
-            'total' => $total
+            'xTVA' => $xTVA,
+            'taxTotal' => $taxTotal,
         ));
     }
 }
