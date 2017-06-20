@@ -38,8 +38,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    form:
-        resources: ['bootstrap_3_layout.html.twig']
+    form_themes:
+            - 'bootstrap_3_layout.html.twig'
 
 
 # Doctrine Configuration
@@ -71,3 +71,7 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+services:
+    app.calculator:
+        class:    AppBundle\Service\Calculator

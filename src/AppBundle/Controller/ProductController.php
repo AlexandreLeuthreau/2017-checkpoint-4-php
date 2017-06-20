@@ -1,8 +1,11 @@
 <?php
 namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\ProductType;
+use AppBundle\Service\Calculator;
+
 
 class ProductController extends Controller
 {
@@ -12,15 +15,25 @@ class ProductController extends Controller
     public function cartAction(Request $request)
     {
         $form = $this->createForm(ProductType::class);
+
+
+        // Les donnees de notre requete sont interpretees.
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
 
+            //On recupere les donnees
             $data = $form->getData();
+            $calculator = $this->get('app.calculator');
+            $data->setVATPrice($calculator->getVAT($data->getPrice()));
 
-            $monservice = // bug magistral. Symfony pouvait pas me dire pourquoi rien ne marchait. Je pouvais plus rien afficher. Ni le sujet ni rien. Même en supprimant tout ce que j'avais fait. J'ai du modifié un paramètre "critique' car sur la branche master je pouvais voir l'énoncé pour travailler sur l'algo.
         }
-        return $this->render('productform.html.twig', [
+
+
+        return $this->render('AppBundle:Product:cart.html.twig', [
             'product_form' => $form->createView(),
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
 }

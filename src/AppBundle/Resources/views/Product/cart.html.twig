@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Your cart</h3>
+        </div>
+        <div class="panel-body">
+            {{ form_start(product_form) }}
+
+            {{ form_label(product_form.name) }}
+            {{ form_widget(product_form.name) }}
+            {{ form_errors(product_form.name) }}
+
+            {{ form_label(product_form.quantity) }}
+            {{ form_widget(product_form.quantity) }}
+            {{ form_errors(product_form.quantity) }}
+
+            {{ form_label(product_form.price) }}
+            {{ form_widget(product_form.price) }}
+            {{ form_errors(product_form.price) }}
+
+            {{ form_row(product_form.submit) }}
+
+            {{ form_end(product_form) }}
+        </div>
+
+        <div>
+            <table>
+                <thead>My bill</thead>
+                <tbody>
+                <tr>{{ VATprice }}</tr>
+                <tr>{{ total }}</tr>
+                <tr>{{ totalVAT }}</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
