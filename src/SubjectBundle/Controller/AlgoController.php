@@ -15,33 +15,27 @@ class AlgoController extends Controller
      */
     public function trim(string $chaine)
     {
-        //l'objectif est de transformer la chaine en tableau dans lequel chaque [] est séparé par ' '. Mon but c'est que
-        // chaque espace soit dans son propre $words.
-        $words = explode(' ', $chaine);
-        // On regarde pour chaque $words si il est composé d'un ' ' ou non
-        foreach ($words as $case) {
+        //on définit la chaîne que l'on va comparer
+        $result='';
+        //coordonnées début de $result
+        $debut=0;
+        //pareil pour la fin
+        $fin=strlen($chaine)-1;
 
-            //on supprime le word s'il contient un espace
-            if ($case = ' ') {
-
-                unset($case);
-            }
-            //Il y a des caractères donc on ne change rien
-            else {
-
-                $case= $case;
-                return $case;
-
-            }
-
-            return $words;
+        //on compare chaque lettre avec un espace
+        while($chaine[$debut]==' '){
+            //on incrémente $debut de 1 à chaque espace rencontré
+            $debut++;
         }
-        //on transforme le nouveau tableau en chaîne dont les words sont séparés par un espace
-        $result = implode(' ', $words);
 
-        echo $result;
+        while($chaine[$fin]==' ') {
+            //On diminue la valeur de $fin à chaque espace
+            $fin--;
+        }
 
-        //cela s'arrête au premier caractère dans le if. J'ai remplacé le '' par 'c' (avant le unset je fais $case='';) et j'ai vu que cela retournait uniquement 'c'. Pas plusieurs.
-
+        for ($i=$debut;$i<=$fin;$i++){
+            $result.=$chaine[$i];
+        }
+        return $result;
     }
 }
